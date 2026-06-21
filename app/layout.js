@@ -1,4 +1,12 @@
 import "./globals.css";
+import { Cormorant_Garamond } from "next/font/google";
+
+const serif = Cormorant_Garamond({
+  subsets: ["latin"],
+  weight: ["600", "700"],
+  variable: "--font-serif",
+  display: "swap",
+});
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000";
 
@@ -30,7 +38,7 @@ export const viewport = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="ko">
+    <html lang="ko" className={serif.variable}>
       <body>
         <div className="shell">{children}</div>
       </body>
