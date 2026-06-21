@@ -11,13 +11,6 @@ export default function CampaignCard({ c }) {
   return (
     <Link href={`/campaigns/${c.slug}`} className="card" aria-label={c.title}>
       <div className="card-top">
-        <div className="brand-logo">
-          {c.brand_logo_url ? (
-            <img src={c.brand_logo_url} alt={c.brand_name} />
-          ) : (
-            brandInitial(c.brand_name)
-          )}
-        </div>
         <div className="brand-meta">
           <div className="name">{c.brand_name}</div>
         </div>

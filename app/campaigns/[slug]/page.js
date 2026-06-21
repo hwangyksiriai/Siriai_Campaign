@@ -50,13 +50,6 @@ export default async function CampaignDetail({ params }) {
 
       <div className="detail-body">
         <div className="brand-row">
-          <div className="brand-logo">
-            {c.brand_logo_url ? (
-              <img src={c.brand_logo_url} alt={c.brand_name} />
-            ) : (
-              brandInitial(c.brand_name)
-            )}
-          </div>
           <div className="brand-meta">
             <div className="name">{c.brand_name}</div>
           </div>
@@ -101,10 +94,10 @@ export default async function CampaignDetail({ params }) {
           </div>
         </section>
 
-        {c.products?.length > 0 && (
+        {(c.products?.length > 0 || c.products_note) && (
           <section className="section">
             <h2>제공 제품</h2>
-            {c.products.map((p, i) =>
+            {c.products?.map((p, i) =>
               p.url ? (
                 <a
                   className="product-row"
@@ -122,6 +115,7 @@ export default async function CampaignDetail({ params }) {
                 </div>
               )
             )}
+            {c.products_note && <p className="products-note">{c.products_note}</p>}
           </section>
         )}
 
@@ -163,15 +157,21 @@ export default async function CampaignDetail({ params }) {
           <section className="section">
             <h2>업로드 가이드</h2>
 
-            {c.collab_accounts?.map((acc, i) => (
-              <div className="copy-box" key={i}>
-                <div className="cap">공동작업자 계정 {i + 1}</div>
-                <div className="copy-row">
-                  <span className="val">{acc}</span>
-                  <CopyButton value={acc} />
-                </div>
+            {c.collab_accounts?.length > 0 && (
+              <div className="copy-box">
+                <div className="cap">공동작업자 계정</div>
+                {c.collab_accounts.map((acc, i) => (
+                  <div
+                    className="copy-row"
+                    key={i}
+                    style={{ marginTop: i ? 10 : 0 }}
+                  >
+                    <span className="val">{acc}</span>
+                    <CopyButton value={acc} />
+                  </div>
+                ))}
               </div>
-            ))}
+            )}
 
             {c.caption_requirements && (
               <div className="note req">

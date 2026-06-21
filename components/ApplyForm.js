@@ -169,13 +169,15 @@ export default function ApplyForm({ campaign }) {
 
                 <div className="field">
                   <label>
-                    인스타그램 핸들 <span className="req-star">*</span>
+                    인스타그램 링크 <span className="req-star">*</span>
                   </label>
                   <input
                     className="input"
+                    type="url"
+                    inputMode="url"
                     value={form.instagram_handle}
                     onChange={(e) => set("instagram_handle", e.target.value)}
-                    placeholder="@아이디"
+                    placeholder="https://instagram.com/내아이디"
                   />
                 </div>
 
@@ -253,7 +255,7 @@ export default function ApplyForm({ campaign }) {
                   <br />
                   📌 <strong>업로드·정산 안내</strong>
                   <br />· 안내된 업로드 마감일까지 업로드 시 정산이 진행됩니다.
-                  <br />· 정산은 매월 5일 일괄 시급됩니다.
+                  <br />· 정산은 매월 5일 일괄 지급됩니다.
                 </div>
 
                 {campaign.consent_items?.map((item, i) => (

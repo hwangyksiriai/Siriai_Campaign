@@ -49,6 +49,7 @@ var CAMPAIGN_HEADERS = [
   "product4_url",
   "product5_name",
   "product5_url",
+  "products_note",
   "consent_items",
   "status",
 ];
@@ -75,7 +76,7 @@ var CAMPAIGNS_TO_LOAD = [
     title: "[MUSINSA] 무신사 오드타입 벌룬틴트/블러틴트/워터블러시",
     brand_name: "ODDTYPE",
     brand_intro:
-      "오드타입은 무신사가 전개하는 컬러 코스메틱 PB 브랜드입니다. 트렌드를 따르기보다 자신만의 리듬으로 뷰티를 표현하는 사람들과 함께 성장합니다. 크리에이터 개인 피드 무드 및 콘셉트에 맞춰 브랜드 측에서 최적의 제품군으로 선정 후 발송 예정.",
+      "오드타입은 무신사가 전개하는 컬러 코스메틱 PB 브랜드입니다. 트렌드를 따르기보다 자신만의 리듬으로 뷰티를 표현하는 사람들과 함께 성장합니다.",
     cover_image_url: "/campaigns/oddtype-balloon.png",
     content_type: "릴스",
     reward_amount: 50000,
@@ -94,6 +95,8 @@ var CAMPAIGNS_TO_LOAD = [
     product2_url: "https://www.musinsa.com/products/3153848",
     product3_name: "워터블러시 4종 (랜덤)",
     product3_url: "https://www.musinsa.com/products/3450028",
+    products_note:
+      "크리에이터 개인 피드 무드 및 콘셉트에 맞춰 브랜드 측에서 최적의 제품군으로 선정 후 발송 예정.",
     consent_items:
       "선정 후 미업로드 시 제공받은 제품의 원가를 청구받는 데 동의합니다.",
     status: "open",
