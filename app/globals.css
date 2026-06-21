@@ -56,8 +56,8 @@ a {
 
 /* ---------- Brand header ---------- */
 .brand-header {
-  text-align: center;
-  padding: 28px 16px 6px;
+  text-align: left;
+  padding: 24px 16px 4px;
 }
 .brand-logo-img {
   height: 42px;

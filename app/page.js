@@ -22,7 +22,7 @@ export default async function HomePage() {
       </div>
 
       <header className="app-header">
-        <h1>캠페인</h1>
+        <h1>Campaigns</h1>
         <span className="count">{ordered.length}</span>
       </header>
 
