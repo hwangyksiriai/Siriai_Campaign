@@ -31,6 +31,13 @@ export default function CampaignCard({ c }) {
           <>
             {c.flags?.[0] && <span className="badge cat">{c.flags[0]}</span>}
             <span className={`badge status ${status.tone}`}>{status.text}</span>
+            {dd && (
+              <span
+                className={`badge dday-cover ${dd === "마감" ? "ended" : ""}`}
+              >
+                {dd}
+              </span>
+            )}
           </>
         )}
       </div>
@@ -46,9 +53,6 @@ export default function CampaignCard({ c }) {
           <span className="won">{formatWon(c.reward_amount)}</span>
           <span className="apply-dot" />
           <span className="apply-label">지원 가능</span>
-          {dd && (
-            <span className={`dday ${dd === "마감" ? "ended" : ""}`}>{dd}</span>
-          )}
         </div>
       )}
     </>

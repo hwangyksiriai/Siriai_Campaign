@@ -194,6 +194,18 @@ a {
   background: #e7ecfb;
   color: #4f5bd5;
 }
+/* D-day 배지: 카드 커버 우하단 */
+.badge.dday-cover {
+  top: auto;
+  bottom: 10px;
+  right: 10px;
+  background: #c77b6b;
+  color: #fff;
+}
+.badge.dday-cover.ended {
+  background: rgba(70, 60, 55, 0.72);
+  color: #fff;
+}
 
 /* 모집예정: 클릭 불가 카드 */
 .card-upcoming {
