@@ -25,15 +25,27 @@ export default function CampaignCard({ c }) {
           alt={c.title}
           fallback={brandInitial(c.brand_name)}
         />
-        {c.flags?.[0] && <span className="badge cat">{c.flags[0]}</span>}
-        <span className={`badge status ${status.tone}`}>{status.text}</span>
+        {upcoming ? (
+          <span className="badge upcoming-center">모집 예정</span>
+        ) : (
+          <>
+            {c.flags?.[0] && <span className="badge cat">{c.flags[0]}</span>}
+            <span className={`badge status ${status.tone}`}>{status.text}</span>
+          </>
+        )}
       </div>
 
       <div className="card-title">{c.title}</div>
 
-      {!upcoming && (
+      {upcoming ? (
+        <div className="card-foot upcoming-foot">
+          오픈 예정 · {formatWon(c.reward_amount)}
+        </div>
+      ) : (
         <div className="card-foot">
           <span className="won">{formatWon(c.reward_amount)}</span>
+          <span className="apply-dot" />
+          <span className="apply-label">지원 가능</span>
           {dd && (
             <span className={`dday ${dd === "마감" ? "ended" : ""}`}>{dd}</span>
           )}

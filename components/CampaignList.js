@@ -36,6 +36,10 @@ export default function CampaignList({ campaigns }) {
     return true;
   });
 
+  // 진행중/마감 = 메인 그리드, 모집예정 = 하단 별도 섹션
+  const mainCards = shown.filter((c) => c.status !== "upcoming");
+  const upcomingCards = shown.filter((c) => c.status === "upcoming");
+
   return (
     <>
       <div className="filter-row">
@@ -51,14 +55,36 @@ export default function CampaignList({ campaigns }) {
         ))}
       </div>
 
-      {shown.length === 0 ? (
+      {shown.length === 0 && (
         <div className="empty">해당 조건의 캠페인이 없어요.</div>
-      ) : (
+      )}
+
+      {mainCards.length > 0 && (
         <div className="card-grid">
-          {shown.map((c) => (
+          {mainCards.map((c) => (
             <CampaignCard key={c.slug} c={c} />
           ))}
         </div>
+      )}
+
+      {upcomingCards.length > 0 && (
+        <>
+          <div className="upcoming-divider">
+            <span />
+            <em>UPCOMING</em>
+            <span />
+          </div>
+          <div className="section-head">
+            <h2>모집 예정</h2>
+            <span className="section-count">{upcomingCards.length}</span>
+          </div>
+          <p className="section-sub">곧 오픈하는 캠페인이에요</p>
+          <div className="card-grid">
+            {upcomingCards.map((c) => (
+              <CampaignCard key={c.slug} c={c} />
+            ))}
+          </div>
+        </>
       )}
     </>
   );

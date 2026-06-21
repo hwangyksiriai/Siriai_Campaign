@@ -844,3 +844,114 @@ a {
   color: #b06354;
   background: rgba(255, 255, 255, 0.9);
 }
+
+/* ============================================================
+   Option D — 모집중 / 모집예정 구분 (append AFTER the previous
+   Option D block at the END of app/globals.css)
+   ============================================================ */
+
+/* 진행중 카드 풋터: 가격 + 초록 점 + '지원 가능' */
+.card-grid .card-foot .apply-dot {
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: #4a7c59;
+  margin-left: 2px;
+  flex-shrink: 0;
+}
+.card-grid .card-foot .apply-label {
+  font-size: 10px;
+  color: #4a7c59;
+  white-space: nowrap;
+}
+
+/* ---- 모집 예정(upcoming) 카드: 흐림 + 베일 + 중앙 배지 ---- */
+.card-grid .card-upcoming {
+  background: #fdfaf7;
+  border-color: #ece2d8;
+  box-shadow: none;
+}
+
+/* 이미지만 흑백 처리(배지/베일은 영향 없음) */
+.card-grid .card-upcoming .cover img,
+.card-grid .card-upcoming .cover .watermark {
+  filter: grayscale(0.55);
+}
+
+/* 크림 베일 */
+.card-grid .card-upcoming .cover::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(250, 246, 242, 0.55);
+  pointer-events: none;
+}
+
+/* 중앙 '모집 예정' 배지 */
+.card-grid .card-upcoming .badge.upcoming-center {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 10.5px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  color: #8a7058;
+  background: rgba(255, 255, 255, 0.92);
+  z-index: 1;
+}
+
+/* 텍스트 무채색 톤 다운 */
+.card-grid .card-upcoming .brand-meta .name {
+  color: #bcaea2;
+}
+.card-grid .card-upcoming .card-title {
+  color: #9a8d83;
+}
+.card-grid .card-upcoming .upcoming-foot {
+  display: block;
+  font-size: 10.5px;
+  color: #a89b92;
+  padding: 8px 11px 12px;
+}
+
+/* ---- '모집 예정' 섹션 구분 (divider + 헤더) ---- */
+.upcoming-divider {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 20px 16px 0;
+}
+.upcoming-divider span {
+  height: 1px;
+  flex: 1;
+  background: #ece2d8;
+}
+.upcoming-divider em {
+  font-style: normal;
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  color: #b8aaa1;
+}
+.section-head {
+  padding: 14px 16px 2px;
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+}
+.section-head h2 {
+  margin: 0;
+  font-size: 17px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  color: #8a7058;
+}
+.section-head .section-count {
+  font-size: 12px;
+  color: #bcaea2;
+}
+.section-sub {
+  margin: 0;
+  padding: 0 16px 12px;
+  font-size: 11.5px;
+  color: #bcaea2;
+}
