@@ -295,6 +295,7 @@ a {
   margin: 0;
   color: var(--ink-2);
   font-size: 14px;
+  white-space: pre-line;
 }
 
 .info-table {
@@ -399,6 +400,7 @@ a {
 }
 .note .body {
   color: var(--ink-2);
+  white-space: pre-line;
 }
 
 .copy-box {
