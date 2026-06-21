@@ -19,6 +19,8 @@
 var SHEET_CAMPAIGNS = "캠페인";
 // 신청은 캠페인별로 "신청 - {캠페인명}" 탭에 따로 저장됩니다.
 var APPLICATION_TAB_PREFIX = "신청 - ";
+// '캠페인 추가' 기능 보안용 암호 (원하면 바꿔도 됨)
+var ADMIN_TOKEN = "siriai-admin-2026";
 
 var CAMPAIGN_HEADERS = [
   "slug",
@@ -175,6 +177,14 @@ function doPost(e) {
       appendApplication(body);
       return json({ ok: true });
     }
+    if (body.action === "addCampaign") {
+      if (body.token !== ADMIN_TOKEN) {
+        return json({ ok: false, error: "unauthorized" });
+      }
+      var list = body.campaigns || (body.campaign ? [body.campaign] : []);
+      list.forEach(addCampaign);
+      return json({ ok: true, added: list.length });
+    }
     return json({ ok: false, error: "unknown action" });
   } catch (err) {
     return json({ ok: false, error: String(err) });
@@ -236,6 +246,23 @@ function appendApplication(body) {
   };
   var row = APPLICATION_HEADERS.map(function (h) {
     return map[h];
+  });
+  sh.appendRow(row);
+}
+
+// 새 캠페인 한 건을 '캠페인' 탭에 한 줄 추가 (기존 데이터는 유지).
+function addCampaign(c) {
+  if (!c) return;
+  var ss = SpreadsheetApp.getActiveSpreadsheet();
+  var sh = ss.getSheetByName(SHEET_CAMPAIGNS) || ss.insertSheet(SHEET_CAMPAIGNS);
+  if (sh.getLastRow() === 0) {
+    sh.appendRow(CAMPAIGN_HEADERS);
+    sh.setFrozenRows(1);
+  }
+  // 실제 시트의 제목줄 순서에 맞춰 값 배치
+  var headers = sh.getRange(1, 1, 1, sh.getLastColumn()).getValues()[0];
+  var row = headers.map(function (h) {
+    return c[h] != null ? c[h] : "";
   });
   sh.appendRow(row);
 }
