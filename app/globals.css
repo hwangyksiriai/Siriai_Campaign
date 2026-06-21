@@ -1149,3 +1149,12 @@ a {
 }
 .note-list li.note-head:first-child { margin-top: 0; }
 .note-list li.note-head::before { display: none; }
+/* ---------- 모바일 터치/스크롤 보강 ---------- */
+button, a, .card, .filter-chip, .copy-btn, .btn, .btn-dark-sm {
+  touch-action: manipulation;   /* 더블탭 확대/탭 지연 제거 */
+}
+.sheet {
+  -webkit-overflow-scrolling: touch;   /* 신청 폼 부드러운 스크롤 */
+}
+.copy-btn { padding: 10px 15px; }   /* 복사 버튼 터치 영역 확대 */
+.filter-chip { padding: 8px 14px; }
