@@ -30,6 +30,24 @@ export default async function CampaignDetail({ params }) {
   const c = await getCampaign(params.slug);
   if (!c) notFound();
 
+  if (c.status === "upcoming") {
+    return (
+      <main>
+        <Link href="/" className="backlink">
+          ← 캠페인 목록
+        </Link>
+        <div className="upcoming-page">
+          <div className="upcoming-emoji">🔜</div>
+          <h2>{c.title}</h2>
+          <p>
+            이 캠페인은 <strong>모집 예정</strong>입니다.
+          </p>
+          <p>가이드라인과 신청은 모집이 시작되면 공개됩니다.</p>
+        </div>
+      </main>
+    );
+  }
+
   const hashtags = c.required_hashtags
     ? String(c.required_hashtags).trim()
     : "";

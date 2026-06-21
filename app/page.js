@@ -5,11 +5,14 @@ export const revalidate = 60;
 
 export default async function HomePage() {
   const all = await getCampaigns();
-  // 마감(closed)은 하단으로, draft 는 숨김
+  // draft 는 숨김. 순서: 모집중 → 모집예정 → 마감
   const visible = all.filter((c) => c.status !== "draft");
-  const active = visible.filter((c) => c.status !== "closed");
+  const upcoming = visible.filter((c) => c.status === "upcoming");
   const closed = visible.filter((c) => c.status === "closed");
-  const ordered = [...active, ...closed];
+  const live = visible.filter(
+    (c) => c.status !== "upcoming" && c.status !== "closed"
+  );
+  const ordered = [...live, ...upcoming, ...closed];
 
   return (
     <main>

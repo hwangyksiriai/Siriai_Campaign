@@ -8,9 +8,11 @@ function brandInitial(name) {
 
 export default function CampaignCard({ c }) {
   const status = statusLabel(c.status);
-  const dd = dDay(c.apply_deadline);
-  return (
-    <Link href={`/campaigns/${c.slug}`} className="card" aria-label={c.title}>
+  const upcoming = c.status === "upcoming";
+  const dd = upcoming ? null : dDay(c.apply_deadline);
+
+  const inner = (
+    <>
       <div className="card-top">
         <div className="brand-meta">
           <div className="name">{c.brand_name}</div>
@@ -28,12 +30,30 @@ export default function CampaignCard({ c }) {
       </div>
 
       <div className="card-title">{c.title}</div>
-      <div className="card-foot">
-        <span className="won">{formatWon(c.reward_amount)}</span>
-        {dd && (
-          <span className={`dday ${dd === "마감" ? "ended" : ""}`}>{dd}</span>
-        )}
+
+      {!upcoming && (
+        <div className="card-foot">
+          <span className="won">{formatWon(c.reward_amount)}</span>
+          {dd && (
+            <span className={`dday ${dd === "마감" ? "ended" : ""}`}>{dd}</span>
+          )}
+        </div>
+      )}
+    </>
+  );
+
+  // 모집예정: 클릭 불가(상세/가이드라인 안 열림)
+  if (upcoming) {
+    return (
+      <div className="card card-upcoming" aria-label={c.title}>
+        {inner}
       </div>
+    );
+  }
+
+  return (
+    <Link href={`/campaigns/${c.slug}`} className="card" aria-label={c.title}>
+      {inner}
     </Link>
   );
 }

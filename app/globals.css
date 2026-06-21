@@ -190,6 +190,36 @@ a {
   background: var(--closed);
   color: var(--closed-ink);
 }
+.badge.upcoming {
+  background: #e7ecfb;
+  color: #4f5bd5;
+}
+
+/* 모집예정: 클릭 불가 카드 */
+.card-upcoming {
+  cursor: default;
+}
+.card-upcoming .cover {
+  opacity: 0.72;
+}
+
+/* 모집예정 안내 페이지 */
+.upcoming-page {
+  text-align: center;
+  padding: 56px 24px;
+}
+.upcoming-page .upcoming-emoji {
+  font-size: 44px;
+}
+.upcoming-page h2 {
+  margin: 14px 0 10px;
+  font-size: 18px;
+}
+.upcoming-page p {
+  margin: 4px 0;
+  color: var(--ink-2);
+  font-size: 14px;
+}
 
 .card-title {
   font-weight: 700;
