@@ -32,12 +32,12 @@ export default async function CampaignDetail({ params }) {
 
   if (c.status === "upcoming") {
     return (
-      <main>
+      <main className="detail">
         <Link href="/" className="backlink">
           ← 캠페인 목록
         </Link>
         <div className="upcoming-page">
-          <div className="upcoming-emoji">🔜</div>
+          <div className="upcoming-tag">OPENING SOON</div>
           <h2>{c.title}</h2>
           <p>
             이 캠페인은 <strong>모집 예정</strong>입니다.
@@ -53,7 +53,7 @@ export default async function CampaignDetail({ params }) {
     : "";
 
   return (
-    <main>
+    <main className="detail">
       <Link href="/" className="backlink">
         ← 캠페인 목록
       </Link>
@@ -158,24 +158,25 @@ export default async function CampaignDetail({ params }) {
               target="_blank"
               rel="noreferrer"
             >
-              📎 가이드 파일 보기 ↗
+              <span>가이드 파일 보기</span>
+              <span>↗</span>
             </a>
           )}
           {c.required_notes && (
             <div className="note req">
-              <div className="label">✅ 필수 사항</div>
+              <div className="label">필수</div>
               <div className="body">{c.required_notes}</div>
             </div>
           )}
           {c.forbidden_notes && (
             <div className="note forbid">
-              <div className="label">⛔ 금지 사항</div>
+              <div className="label">금지</div>
               <div className="body">{c.forbidden_notes}</div>
             </div>
           )}
           {c.recommended_notes && (
             <div className="note tip">
-              <div className="label">💡 추천 사항</div>
+              <div className="label">추천</div>
               <div className="body">{c.recommended_notes}</div>
             </div>
           )}
@@ -206,7 +207,7 @@ export default async function CampaignDetail({ params }) {
 
             {c.caption_requirements && (
               <div className="note req">
-                <div className="label">✅ 캡션 필수 사항</div>
+                <div className="label">캡션</div>
                 <div className="body">{c.caption_requirements}</div>
               </div>
             )}

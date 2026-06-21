@@ -955,3 +955,123 @@ a {
   font-size: 11.5px;
   color: #bcaea2;
 }
+
+/* ============================================================
+   Option D — 캠페인 상세 페이지(detail) warm 리스타일
+   app/globals.css 끝에 추가.  app/campaigns/[slug]/page.js 의
+   <main> 두 곳에 className="detail" (detail-page.js로 교체하면 적용됨).
+   .detail 로만 스코프 → 다른 화면 영향 없음.
+   ============================================================ */
+
+.shell:has(.detail) { background: #faf6f2; }
+.detail { background: #faf6f2; }
+
+.detail .backlink { color: #9c8f86; }
+
+/* 커버 */
+.detail .detail-cover {
+  background: linear-gradient(160deg, #f1ece3, #e6ebe4);
+}
+.detail .detail-cover .watermark { color: rgba(110, 100, 80, 0.3); }
+
+/* 타이틀 / 브랜드 / 고료 */
+.detail .brand-meta .name {
+  font-size: 10px;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  font-weight: 600;
+  color: #c0918a;
+}
+.detail .detail-title { color: #2a2320; }
+.detail .detail-reward { color: #c77b6b; }
+
+/* 태그 */
+.detail .tag { background: #f0e9e3; color: #8a7e76; }
+.detail .tag.req { background: #f7e7e2; color: #b06354; }
+
+/* 섹션 */
+.detail .section h2 { color: #b8aaa1; }
+.detail .section p { color: #6b605a; }
+
+/* 흰 카드(warm border) */
+.detail .info-table,
+.detail .product-row,
+.detail .copy-box {
+  background: #fff;
+  border-color: #efe6df;
+}
+.detail .info-row { border-bottom-color: #f3ece5; }
+.detail .info-row .k { color: #a89b92; }
+.detail .info-row .v { color: #2a2320; }
+.detail .schedule-note,
+.detail .products-note,
+.detail .guide-note { color: #bcaea2; }
+.detail .product-row .pname { color: #2a2320; }
+.detail .product-row .plink { color: #c77b6b; }
+
+/* 가이드 파일 (인디고 → 코랄, 좌우 정렬) */
+.detail .guide-file {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #faf3f0;
+  color: #c77b6b;
+  border: 1px solid #f0ddd6;
+}
+
+/* 가이드 노트: 칩(라벨) + 본문 가로 배치 */
+.detail .note {
+  display: flex;
+  gap: 11px;
+  align-items: flex-start;
+  background: #fff;
+  border: 1px solid #efe6df;
+}
+.detail .note .label {
+  flex: none;
+  display: inline-block;
+  font-size: 10px;
+  font-weight: 700;
+  padding: 4px 8px;
+  border-radius: 6px;
+  margin: 0;
+}
+.detail .note.req .label { color: #4a7c59; background: #e6f0e8; }
+.detail .note.forbid .label { color: #b65a4d; background: #f7e3df; }
+.detail .note.tip { background: #fff; }
+.detail .note.tip .label { color: #a8842f; background: #f4ecd9; }
+.detail .note .body { color: #6b605a; padding-top: 2px; }
+
+/* 복사 박스 */
+.detail .copy-box .cap { color: #a89b92; }
+.detail .copy-box .val { color: #2a2320; }
+.detail .copy-btn {
+  background: #faf3f0;
+  color: #c77b6b;
+  border: 1px solid #ecc9c0;
+}
+.detail .copy-btn.done {
+  background: #e8f4ec;
+  color: #1f9254;
+  border-color: #cfe9d8;
+}
+
+/* 하단 신청 바 + 신청 버튼 → 코랄 */
+.detail .cta-inner {
+  background: linear-gradient(to top, #faf6f2 70%, transparent);
+}
+.detail .btn.primary { background: #c77b6b; }
+.detail .btn-dark-sm { background: #c77b6b; }
+
+/* 모집예정 상세(별도 안내 페이지) */
+.detail .upcoming-tag {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  color: #8a7058;
+  background: #efe3d8;
+  border-radius: 999px;
+  padding: 6px 14px;
+  margin-bottom: 6px;
+}
