@@ -91,6 +91,9 @@ export default async function CampaignDetail({ params }) {
                 {formatPeriod(c.upload_start, c.upload_end)}
               </span>
             </div>
+            {c.schedule_note && (
+              <div className="schedule-note">{c.schedule_note}</div>
+            )}
           </div>
         </section>
 
