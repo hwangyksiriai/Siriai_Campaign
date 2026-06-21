@@ -1,10 +1,10 @@
 :root {
   --bg: #ffffff;
-  --card: #f5eee3;
-  --ink: #1c1917;
-  --ink-2: #6b6058;
-  --ink-3: #a8a29e;
-  --line: #e7dccb;
+  --card: #f4f4f2;
+  --ink: #1c1c1f;
+  --ink-2: #5b616b;
+  --ink-3: #9ca3af;
+  --line: #ececec;
   --primary: #18181b;
   --primary-ink: #ffffff;
   --accent: #f4b8b0;
@@ -12,7 +12,7 @@
   --open-ink: #1f9254;
   --neg: #fff4e5;
   --neg-ink: #b9760a;
-  --closed: #efe9e0;
+  --closed: #ececed;
   --closed-ink: #8b8b93;
   --radius: 16px;
   --maxw: 480px;
@@ -241,7 +241,7 @@ a {
   font-weight: 600;
   padding: 6px 12px;
   border-radius: 999px;
-  background: #efe9e0;
+  background: #ececed;
   color: var(--ink-2);
 }
 .tag.req {
@@ -336,7 +336,7 @@ a {
   border-radius: 12px;
   font-size: 14px;
   margin-bottom: 8px;
-  background: #ffffff;
+  background: var(--card);
   border: 1px solid var(--line);
 }
 .note .label {
@@ -352,6 +352,9 @@ a {
 }
 .note.forbid .label {
   color: #c0473e;
+}
+.note.tip {
+  background: #f2f4f7;
 }
 .note.tip .label {
   color: #6b5bbf;
@@ -385,7 +388,7 @@ a {
 }
 .copy-btn {
   border: none;
-  background: #efe9e0;
+  background: #ececed;
   color: var(--ink);
   font-weight: 600;
   font-size: 13px;
@@ -496,7 +499,7 @@ a {
 .textarea {
   width: 100%;
   border: 1px solid var(--line);
-  background: #faf8f4;
+  background: #fafafa;
   border-radius: 12px;
   padding: 13px 14px;
   font-size: 15px;
