@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { formatWon, statusLabel } from "@/lib/format";
+import { formatWon, statusLabel, dDay } from "@/lib/format";
 import CoverImage from "@/components/CoverImage";
 
 function brandInitial(name) {
@@ -8,6 +8,7 @@ function brandInitial(name) {
 
 export default function CampaignCard({ c }) {
   const status = statusLabel(c.status);
+  const dd = dDay(c.apply_deadline);
   return (
     <Link href={`/campaigns/${c.slug}`} className="card" aria-label={c.title}>
       <div className="card-top">
@@ -29,6 +30,9 @@ export default function CampaignCard({ c }) {
       <div className="card-title">{c.title}</div>
       <div className="card-foot">
         <span className="won">{formatWon(c.reward_amount)}</span>
+        {dd && (
+          <span className={`dday ${dd === "마감" ? "ended" : ""}`}>{dd}</span>
+        )}
       </div>
     </Link>
   );

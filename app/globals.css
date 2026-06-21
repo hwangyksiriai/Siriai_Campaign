@@ -54,6 +54,24 @@ a {
   padding: 16px;
 }
 
+/* ---------- Brand header ---------- */
+.brand-header {
+  text-align: center;
+  padding: 28px 16px 6px;
+}
+.brand-logo-img {
+  height: 42px;
+  width: auto;
+  max-width: 70%;
+  object-fit: contain;
+}
+.brand-tagline {
+  margin: 10px 0 0;
+  font-size: 12px;
+  letter-spacing: 0.04em;
+  color: var(--ink-3);
+}
+
 /* ---------- Header ---------- */
 .app-header {
   padding: 20px 16px 8px;
@@ -188,6 +206,19 @@ a {
 .card-foot .won {
   font-weight: 700;
   color: var(--ink);
+}
+.dday {
+  margin-left: auto;
+  font-size: 12px;
+  font-weight: 700;
+  color: #c0473e;
+  background: #fdeceb;
+  padding: 3px 9px;
+  border-radius: 999px;
+}
+.dday.ended {
+  color: #8b8b93;
+  background: #ececed;
 }
 
 /* ---------- Detail ---------- */

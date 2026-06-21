@@ -13,6 +13,11 @@ export default async function HomePage() {
 
   return (
     <main>
+      <div className="brand-header">
+        <img src="/campaigns/logo.png" alt="SIRIAI" className="brand-logo-img" />
+        <p className="brand-tagline">Architecture for Insight, AI</p>
+      </div>
+
       <header className="app-header">
         <h1>캠페인</h1>
         <span className="count">{ordered.length}</span>

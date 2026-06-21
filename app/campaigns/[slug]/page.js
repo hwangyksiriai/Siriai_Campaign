@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { getCampaign, getCampaigns } from "@/lib/sheets";
-import { formatWon, formatPeriod } from "@/lib/format";
+import { formatWon, formatPeriod, dDay } from "@/lib/format";
 import CopyButton from "@/components/CopyButton";
 import ApplyForm from "@/components/ApplyForm";
 import CoverImage from "@/components/CoverImage";
@@ -85,6 +85,15 @@ export default async function CampaignDetail({ params }) {
               <span className="k">고료</span>
               <span className="v">{formatWon(c.reward_amount)}</span>
             </div>
+            {c.apply_deadline && (
+              <div className="info-row">
+                <span className="k">신청 마감</span>
+                <span className="v">
+                  {c.apply_deadline}
+                  {dDay(c.apply_deadline) ? ` (${dDay(c.apply_deadline)})` : ""}
+                </span>
+              </div>
+            )}
             <div className="info-row">
               <span className="k">업로드 기간</span>
               <span className="v">
