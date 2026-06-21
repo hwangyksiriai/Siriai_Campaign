@@ -698,3 +698,149 @@ a {
   color: var(--ink);
   margin-top: 24px;
 }
+/* ============================================================
+   Option D — Home (campaign list): soft-tint · 2-column grid
+   Append this block to the END of app/globals.css.
+   Scoped to the home page (.home / .card-grid / .filter-row) —
+   the detail page, apply sheet, and existing tokens are untouched.
+   ============================================================ */
+
+/* warm soft-tint background, home only */
+.shell:has(.home) {
+  background: #faf6f2;
+}
+.home {
+  background: #faf6f2;
+}
+
+/* serif text wordmark (replaces logo image) */
+.home .brand-wordmark {
+  font-family: var(--font-serif), Georgia, serif;
+  font-size: 30px;
+  font-weight: 700;
+  color: #5c271c;
+  letter-spacing: 0.01em;
+  line-height: 1;
+}
+.home .brand-tagline {
+  color: #b8aaa1;
+}
+
+/* header: coral count pill */
+.home .app-header h1 {
+  color: #2a2320;
+}
+.home .app-header .count {
+  background: #c77b6b;
+  color: #fff;
+  border-radius: 999px;
+  padding: 2px 9px;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+/* filter chips */
+.filter-row {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  padding: 4px 16px 12px;
+}
+.filter-chip {
+  border: none;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 12px;
+  font-weight: 600;
+  padding: 7px 14px;
+  border-radius: 999px;
+  white-space: nowrap;
+  background: #f7e7e2;
+  color: #b06354;
+}
+.filter-chip.active {
+  background: #c77b6b;
+  color: #fff;
+}
+.filter-chip:active {
+  transform: scale(0.97);
+}
+
+/* 2-column grid */
+.card-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  padding: 8px 16px 24px;
+}
+
+/* compact grid card: image on top, text below */
+.card-grid .card {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background: #fff;
+  border: 1px solid #efe6df;
+  border-radius: 16px;
+  box-shadow: 0 4px 16px rgba(180, 140, 130, 0.08);
+}
+
+/* cover image pinned to top, full-bleed, portrait crop */
+.card-grid .cover {
+  order: 0;
+  border-radius: 0;
+  aspect-ratio: 4 / 5;
+  background: linear-gradient(135deg, #f3d9d4, #e9d9cf);
+}
+
+/* brand name moves below the image, small coral label */
+.card-grid .card-top {
+  order: 1;
+  margin: 0;
+  padding: 10px 11px 0;
+}
+.card-grid .brand-meta .name {
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  color: #c77b6b;
+}
+
+.card-grid .card-title {
+  order: 2;
+  margin: 5px 11px 0;
+  font-size: 12.5px;
+  line-height: 1.45;
+  letter-spacing: -0.01em;
+  color: #2a2320;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  min-height: 36px;
+}
+
+.card-grid .card-foot {
+  order: 3;
+  margin: 0;
+  padding: 8px 11px 12px;
+  align-items: center;
+  gap: 7px;
+}
+.card-grid .card-foot .won {
+  font-size: 12.5px;
+  font-weight: 700;
+  color: #c77b6b;
+}
+.card-grid .dday {
+  font-size: 10px;
+  padding: 2px 7px;
+}
+
+/* category badge (e.g. 공동작업 필수) tinted warm; status badge keeps its tone */
+.card-grid .badge.cat {
+  color: #b06354;
+  background: rgba(255, 255, 255, 0.9);
+}
