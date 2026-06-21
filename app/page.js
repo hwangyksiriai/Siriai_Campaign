@@ -1,5 +1,5 @@
 import { getCampaigns } from "@/lib/sheets";
-import CampaignCard from "@/components/CampaignCard";
+import CampaignList from "@/components/CampaignList";
 
 export const revalidate = 60;
 
@@ -15,9 +15,9 @@ export default async function HomePage() {
   const ordered = [...live, ...upcoming, ...closed];
 
   return (
-    <main>
+    <main className="home">
       <div className="brand-header">
-        <img src="/campaigns/logo.png" alt="SIRIAI" className="brand-logo-img" />
+        <div className="brand-wordmark">Siriai</div>
         <p className="brand-tagline">Architecture for Insight, AI</p>
       </div>
 
@@ -29,11 +29,7 @@ export default async function HomePage() {
       {ordered.length === 0 ? (
         <div className="empty">현재 모집 중인 캠페인이 없어요.</div>
       ) : (
-        <div>
-          {ordered.map((c) => (
-            <CampaignCard key={c.slug} c={c} />
-          ))}
-        </div>
+        <CampaignList campaigns={ordered} />
       )}
 
       <div style={{ height: 24 }} />
