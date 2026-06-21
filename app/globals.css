@@ -1158,3 +1158,15 @@ button, a, .card, .filter-chip, .copy-btn, .btn, .btn-dark-sm {
 }
 .copy-btn { padding: 10px 15px; }   /* 복사 버튼 터치 영역 확대 */
 .filter-chip { padding: 8px 14px; }
+/* 브랜드 소개 → 흰 카드 */
+.detail .intro-card {
+  margin: 0;
+  background: #fff;
+  border: 1px solid #efe6df;
+  border-radius: 12px;
+  padding: 14px 15px;
+  color: #6b605a;
+  font-size: 14px;
+  line-height: 1.65;
+  white-space: pre-line;
+}

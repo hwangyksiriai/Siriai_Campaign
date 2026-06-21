@@ -89,7 +89,7 @@ export default async function CampaignDetail({ params }) {
         {c.brand_intro && (
           <section className="section">
             <h2>브랜드 소개</h2>
-            <p>{c.brand_intro}</p>
+            <p className="intro-card">{c.brand_intro}</p>
           </section>
         )}
 
