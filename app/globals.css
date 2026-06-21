@@ -1087,3 +1087,33 @@ a {
   padding: 6px 14px;
   margin-bottom: 6px;
 }
+
+/* 가이드 본문 자동 목록 (NoteBody) */
+.note-list { list-style: none; margin: 0; padding: 0; }
+.note-list li {
+  position: relative;
+  padding-left: 14px;
+  margin-bottom: 6px;
+  line-height: 1.55;
+}
+.note-list li:last-child { margin-bottom: 0; }
+.note-list li::before {
+  content: "";
+  position: absolute;
+  left: 3px;
+  top: 8px;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: currentColor;
+  opacity: 0.45;
+}
+.note-list li.note-head {
+  padding-left: 0;
+  margin-top: 9px;
+  margin-bottom: 4px;
+  font-weight: 700;
+  color: #2a2320;
+}
+.note-list li.note-head:first-child { margin-top: 0; }
+.note-list li.note-head::before { display: none; }

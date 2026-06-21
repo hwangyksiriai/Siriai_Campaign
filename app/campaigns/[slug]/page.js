@@ -5,6 +5,7 @@ import { formatWon, formatPeriod, dDay } from "@/lib/format";
 import CopyButton from "@/components/CopyButton";
 import ApplyForm from "@/components/ApplyForm";
 import CoverImage from "@/components/CoverImage";
+import NoteBody from "@/components/NoteBody";
 
 export const revalidate = 60;
 
@@ -165,19 +166,19 @@ export default async function CampaignDetail({ params }) {
           {c.required_notes && (
             <div className="note req">
               <div className="label">필수</div>
-              <div className="body">{c.required_notes}</div>
+              <NoteBody text={c.required_notes} />
             </div>
           )}
           {c.forbidden_notes && (
             <div className="note forbid">
               <div className="label">금지</div>
-              <div className="body">{c.forbidden_notes}</div>
+              <NoteBody text={c.forbidden_notes} />
             </div>
           )}
           {c.recommended_notes && (
             <div className="note tip">
               <div className="label">추천</div>
-              <div className="body">{c.recommended_notes}</div>
+              <NoteBody text={c.recommended_notes} />
             </div>
           )}
           {c.guide_note && <p className="guide-note">{c.guide_note}</p>}
@@ -208,7 +209,7 @@ export default async function CampaignDetail({ params }) {
             {c.caption_requirements && (
               <div className="note req">
                 <div className="label">캡션</div>
-                <div className="body">{c.caption_requirements}</div>
+                <NoteBody text={c.caption_requirements} />
               </div>
             )}
 
