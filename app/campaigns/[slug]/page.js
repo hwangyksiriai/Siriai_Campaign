@@ -149,6 +149,7 @@ export default async function CampaignDetail({ params }) {
               <div className="body">{c.recommended_notes}</div>
             </div>
           )}
+          {c.guide_note && <p className="guide-note">{c.guide_note}</p>}
         </section>
 
         {(c.collab_accounts?.length > 0 ||
