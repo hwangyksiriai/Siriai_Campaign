@@ -199,9 +199,6 @@ a {
 .card-upcoming {
   cursor: default;
 }
-.card-upcoming .cover {
-  opacity: 0.72;
-}
 
 /* 모집예정 안내 페이지 */
 .upcoming-page {
