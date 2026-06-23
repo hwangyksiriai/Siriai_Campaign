@@ -258,32 +258,20 @@ export default function ApplyForm({ campaign }) {
                   <br />· 정산은 매월 5일 일괄 지급됩니다.
                 </div>
 
-                {campaign.consent_items?.map((item, i) => (
-                  <label className="consent" key={i}>
-                    <input
-                      type="checkbox"
-                      checked={agreed}
-                      onChange={(e) => setAgreed(e.target.checked)}
-                    />
-                    <span>
-                      {item} <span className="opt">(필수)</span>
-                    </span>
-                  </label>
-                ))}
-                {(!campaign.consent_items ||
-                  campaign.consent_items.length === 0) && (
-                  <label className="consent">
-                    <input
-                      type="checkbox"
-                      checked={agreed}
-                      onChange={(e) => setAgreed(e.target.checked)}
-                    />
-                    <span>
-                      개인정보 수집·이용에 동의합니다.{" "}
-                      <span className="opt">(필수)</span>
-                    </span>
-                  </label>
-                )}
+                <label className="consent">
+                  <input
+                    type="checkbox"
+                    checked={agreed}
+                    onChange={(e) => setAgreed(e.target.checked)}
+                  />
+                  <span>
+                    안내된 캠페인별 가이드라인 및 고료 조건을 확인했으며 이에
+                    동의합니다.
+                    <br />
+                    제작된 콘텐츠는 브랜드 및 SIRIAI의 2차 활용에 동의합니다.{" "}
+                    <span className="opt">(필수)</span>
+                  </span>
+                </label>
 
                 {error && <div className="err">{error}</div>}
 
